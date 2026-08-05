@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Coding - Alex Woolley</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap">
+</head>
+<body class="case-study-page">
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">alexwoolley<span>.</span></a>
+      <nav class="desktop-nav">
+        <a href="index.html#work">&larr; back to work</a>
+        <a href="index.html#about">about me</a>
+        <a href="index.html#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case-study-main">
+
+    <!-- Hero Header -->
+    <section class="cs-hero theme-indigo">
+      <div class="cs-hero-container">
+        <h1>Creative Coding</h1>
+        <p class="cs-subtitle">
+          Here are a few creative coding projects I completed during university.
+        </p>
+        <div class="warning-banner">
+          ⚠️ <strong>WARNING:</strong> FLASHING LIGHTS
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <section class="cs-body">
+      <div class="cs-container">
+
+        <!-- Section 1: three.js -->
+        <div class="coding-project-block">
+          <h2 class="section-title">three.js</h2>
+          <p class="project-desc">
+            This project uses three.js to create audio-reactive cubes which change speed and colour according to varying microphone input.
+          </p>
+
+          <div class="cs-media branding-grid">
+            <div class="slide active">
+              <video src="/creative-coding/1.mp4" autoplay loop muted playsinline data-caption="Audio-reactive three.js visualisation canvas."></video>
+            </div>
+          </div>
+
+          <p class="project-links">
+            Test it out <a href="https://8d7mc9.csb.app" target="_blank" rel="noopener noreferrer">here</a> and view the code <a href="https://codesandbox.io/p/sandbox/project-8d7mc9" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+        </div>
+
+        <!-- Section 2: MaxMSP -->
+        <div class="coding-project-block">
+          <h2 class="section-title">MaxMSP</h2>
+          <p class="project-desc">
+            This project involved using a customised Raspberry Pi with various sensors to control an audio-reactive script in Max.
+          </p>
+
+          <div class="cs-media branding-grid">
+            <div class="slide active">
+              <img src="/creative-coding/Screenshot 2025-03-27 at 18.38.38.png" alt="MaxMSP Output" data-caption="Screenshot from output of the MaxMSP project." />
+            </div>
+            <div class="slide active">
+              <img src="/creative-coding/Screenshot 2025-03-28 at 21.34.51.png" alt="MaxMSP Patch Diagram" data-caption="MaxMSP dashboard showing signal routing patch and sensor logic." />
+            </div>
+            <div class="slide active">
+              <video src="/creative-coding/2.mp4" autoplay loop muted playsinline data-caption="Audio-reactive output generated in MaxMSP."></video>
+            </div>
+          </div>
+
+          <p class="project-links">
+            Check out the video showcasing this <a href="https://youtu.be/PqPeCfyU9JU" target="_blank" rel="noopener noreferrer">here</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Alex Woolley. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="image-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <button class="modal-arrow prev" aria-label="Previous">&larr;</button>
+    <button class="modal-arrow next" aria-label="Next">&rarr;</button>
+    <div class="modal-wrapper">
+      <div id="modal-media-container"></div>
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

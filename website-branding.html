@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website & Branding Project - Alex Woolley</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap">
+</head>
+<body class="case-study-page">
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">alexwoolley<span>.</span></a>
+      <nav class="desktop-nav">
+        <a href="index.html#work">&larr; back to work</a>
+        <a href="index.html#about">about me</a>
+        <a href="index.html#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case-study-main">
+
+    <!-- Hero Section -->
+    <section class="cs-hero theme-slate">
+      <div class="cs-hero-container">
+        <h1>Website & Branding Project</h1>
+        <p class="cs-subtitle">
+          End-to-end digital design and development featuring a fully functional and responsive Bootstrap site, merchandise mockups, logo design, and brand identity assets. See below some screenshots from the site and some of the assets I created.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <section class="cs-body">
+      <div class="cs-container">
+
+        <!-- Section 1: Website Row -->
+        <div class="newsletter-section">
+          <h2 class="section-title">Website</h2>
+          <div class="cs-media branding-grid">
+            <div class="slide active">
+              <img src="/website-branding/web1.png" alt="Website Homepage Design" data-caption="Responsive desktop layout design and brand hero section." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/web2.png" alt="Website Homepage Design" data-caption="Website Homepage Design." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/web3.png" alt="Website Merchandise Page" data-caption="Website Merchandise Page." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/web4.png" alt="Website Merchandise Page" data-caption="Website Merchandise Page." />
+            </div>
+            <div class="slide active">
+              <video src="/website-branding/vid.mp4" autoplay loop muted playsinline data-caption="Video demonstration showcasing website interaction."></video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Graphic Assets Row -->
+        <div class="newsletter-section">
+          <h2 class="section-title">Graphic Assets</h2>
+          <div class="cs-media branding-grid">
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/asset1.png" alt="Brand Graphic Asset 1" data-caption="Graphic highlighting website link." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/weblogo.png" alt="Brand Graphic Asset 2" data-caption="Logo created for the brand." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/white t shirt.jpg" alt="Brand Graphic Asset 3" data-caption="T-shirt Merchandise mockup." />
+            </div>
+             <div class="slide active">
+              <img src="/website-branding/sqooshed/service menu.jpg" alt="Brand Graphic Asset 4" data-caption="Services list created within Adobe Illustrator." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/Volkswagen Car Mockup.jpg" alt="Brand Graphic Asset 5" data-caption="Car branding mockup." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/blackskateboard.jpg" alt="Brand Graphic Asset 6" data-caption="Skateboard mockup 1." />
+            </div>
+            <div class="slide active">
+              <img src="/website-branding/sqooshed/manskateboardwhite.jpg" alt="Brand Graphic Asset 7" data-caption="Skateboard mockup 2" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Alex Woolley. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="image-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <button class="modal-arrow prev" aria-label="Previous">&larr;</button>
+    <button class="modal-arrow next" aria-label="Next">&rarr;</button>
+    <div class="modal-wrapper">
+      <div id="modal-media-container"></div>
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

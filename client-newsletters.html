@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Newsletters - Alex Woolley</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap">
+</head>
+<body class="case-study-page">
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">alexwoolley<span>.</span></a>
+      <nav class="desktop-nav">
+        <a href="index.html#work">&larr; back to work</a>
+        <a href="index.html#about">about me</a>
+        <a href="index.html#contact">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="case-study-main">
+
+    <!-- Hero Section -->
+    <section class="cs-hero theme-cream">
+      <div class="cs-hero-container">
+        <h1>Client Newsletters</h1>
+        <p class="cs-subtitle">
+          Working with client briefs to create professional, interactive, web-based digital newsletters. Personally managing distribution campaigns to a large monthly audience of over four thousand contacts, ensuring seamless integration of design elements and branding, consistently fulfilling client expectations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Body -->
+    <section class="cs-body">
+      <div class="cs-container">
+
+        <!-- Examples Section (6 Vertical Images) -->
+        <div class="newsletter-section">
+          <h2 class="section-title">Examples</h2>
+          
+          <div class="cs-media newsletters-grid">
+            <div class="slide active">
+              <img src="/newsletters/1.png" alt="Client Newsletter Example 1" data-caption="Newsletter Snippet 1" />
+            </div>
+            <div class="slide active">
+              <img src="/newsletters/2.png" alt="Client Newsletter Example 2" data-caption="Newsletter Snippet 2" />
+            </div>
+            <div class="slide active">
+              <img src="/newsletters/3.png" alt="Client Newsletter Example 3" data-caption="Newsletter Snippet 3" />
+            </div>
+            <div class="slide active">
+              <img src="/newsletters/4.png" alt="Client Newsletter Example 4" data-caption="Newsletter Snippet 4" />
+            </div>
+            <div class="slide active">
+              <img src="/newsletters/5.png" alt="Client Newsletter Example 5" data-caption="Newsletter Snippet 5" />
+            </div>
+            <div class="slide active">
+              <img src="/newsletters/6.png" alt="Client Newsletter Example 6" data-caption="Newsletter Snippet 6" />
+            </div>
+          </div>
+        </div>
+
+        <!-- View Newsletters Section (Single Line Hyperlinks) -->
+        <div class="newsletter-section">
+          <h2 class="section-title">View Newsletters</h2>
+          <p class="newsletter-inline-links">
+            Read full newsletters here: 
+            <a href="https://cadg-zcmp.campaign-view.eu/ua/viewinbrowser?od=3z2c7363ab9c8720ab98e21033d8d259eb&rd=1e97113efaf666a&sd=1e97113efaf6363&n=11699e4c24f5fb7&mrd=1e97113efaf6351&m=1" target="_blank" rel="noopener noreferrer">Edition 01</a> &bull; 
+            <a href="https://cadg-zcmp.campaign-view.eu/ua/viewinbrowser?od=3z2c7363ab9c8720ab98e21033d8d259eb&rd=1e97113efa72522&sd=1e97113efa72219&n=11699e4bf78c014&mrd=1e97113efa72207&m=1" target="_blank" rel="noopener noreferrer">Edition 02</a> &bull; 
+            <a href="https://cadg-zcmp.campaign-view.eu/ua/SharedView?od=3z2c7363ab9c8720ab98e21033d8d259eb&cno=11a2b0b1d2db87d&cd=1e97113ef6fc87d&m=0" target="_blank" rel="noopener noreferrer">Edition 03</a>
+            <a href="https://cadg-zcmp.campaign-view.eu/ua/viewinbrowser?od=3z2c7363ab9c8720ab98e21033d8d259eb&rd=1e97113ef97f291&sd=1e97113ef97ef7f&n=11699e4be6c87ce&mrd=1e97113ef97ef6d&m=1" target="_blank" rel="noopener noreferrer">Edition 04</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Alex Woolley. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Modal -->
+  <div id="image-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <button class="modal-arrow prev" aria-label="Previous">&larr;</button>
+    <button class="modal-arrow next" aria-label="Next">&rarr;</button>
+    <div class="modal-wrapper">
+      <div id="modal-media-container"></div>
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

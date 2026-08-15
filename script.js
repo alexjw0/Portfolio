@@ -536,3 +536,169 @@ function initDynamicGalleryBox() {
     slides.forEach(slide => observer.observe(slide, { attributes: true }));
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ==========================================
+     1. PHOTO & POSTER FAN SCATTER ON SCROLL
+     ========================================== */
+  const scatterTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 1.2, // Smooth scrub catch-up
+      invalidateOnRefresh: true,
+    }
+  });
+
+  // Left Fan Scatter Physics (Explode outwards to the left/down)
+  scatterTimeline.to(".photo-1", { x: -160, y: 90, rotation: -28, opacity: 0, ease: "power1.out" }, 0)
+                 .to(".photo-2", { x: -110, y: 50, rotation: -16, opacity: 0, ease: "power1.out" }, 0)
+                 .to(".photo-3", { x: -60,  y: 130, rotation: 12,  opacity: 0, ease: "power1.out" }, 0)
+                 .to(".photo-4", { x: -180, y: 150, rotation: -22, opacity: 0, ease: "power1.out" }, 0)
+                 .to(".photo-5", { x: -30,  y: 170, rotation: 18,  opacity: 0, ease: "power1.out" }, 0);
+
+  // Right Fan Scatter Physics (Explode outwards to the right/down)
+  scatterTimeline.to(".poster-1", { x: 90,  y: 120, rotation: -22, opacity: 0, ease: "power1.out" }, 0)
+                 .to(".poster-2", { x: 160, y: 70,  rotation: 18,  opacity: 0, ease: "power1.out" }, 0)
+                 .to(".poster-3", { x: 220, y: 140, rotation: 30,  opacity: 0, ease: "power1.out" }, 0);
+
+
+  /* ==========================================
+     2. FLOATING BADGE DRIFT & CURSOR REPEL
+     ========================================== */
+  const icons = document.querySelectorAll(".software-cluster .icon");
+
+  // Continuous ambient floating drift
+  icons.forEach((icon, i) => {
+    gsap.to(icon, {
+      y: `+=${8 + (i % 3) * 4}`,
+      x: `+=${(i % 2 === 0 ? 1 : -1) * 6}`,
+      rotation: `+=${(i % 2 === 0 ? 3 : -3)}`,
+      duration: 2.5 + i * 0.4,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+  });
+
+  // Interactive Cursor Repel on Hover/Proximity
+  const cluster = document.querySelector(".software-cluster");
+
+  if (cluster) {
+    cluster.addEventListener("mousemove", (e) => {
+      const rect = cluster.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      icons.forEach((icon) => {
+        const iconX = icon.offsetLeft + icon.offsetWidth / 2;
+        const iconY = icon.offsetTop + icon.offsetHeight / 2;
+
+        const deltaX = mouseX - iconX;
+        const deltaY = mouseY - iconY;
+        const distance = Math.hypot(deltaX, deltaY);
+        const maxDistance = 140; // Proximity threshold
+
+        if (distance < maxDistance) {
+          const force = (maxDistance - distance) / maxDistance;
+          const repelX = -(deltaX / distance) * force * 35;
+          const repelY = -(deltaY / distance) * force * 35;
+
+          gsap.to(icon, {
+            x: repelX,
+            y: repelY,
+            scale: 1.15,
+            duration: 0.3,
+            ease: "power2.out",
+            overwrite: "auto"
+          });
+        }
+      });
+    });
+
+    cluster.addEventListener("mouseleave", () => {
+      icons.forEach((icon) => {
+        gsap.to(icon, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.4)",
+          overwrite: "auto"
+        });
+      });
+    });
+  }
+});
+
+/* ==========================================
+   3. TYPEWRITER EFFECT & ARROW POP-IN
+   ========================================== */
+const targetWord = "through";
+const typewriterEl = document.getElementById("typewriter-target");
+const cursorEl = document.querySelector(".typing-cursor");
+const arrowImg = document.querySelector(".typewriter-arrow-img");
+
+if (typewriterEl) {
+  // Set initial position and rotation in GSAP
+  if (arrowImg) {
+    gsap.set(arrowImg, {
+      xPercent: -50,
+      rotation: 140, // Match your desired East-facing rotation
+      opacity: 0,
+      y: 0
+    });
+  }
+
+  const introTimeline = gsap.timeline({ delay: 0.4 });
+
+  // 1. Snappy character typing (0.13s per letter)
+  targetWord.split("").forEach((char) => {
+    introTimeline.to({}, {
+      duration: 0.13,
+      onComplete: () => {
+        typewriterEl.textContent += char;
+      }
+    });
+  });
+
+  // 2. Hide cursor, then pop in the arrow above
+  introTimeline
+    .to(cursorEl, { 
+      opacity: 0, 
+      duration: 0.2, 
+      onComplete: () => cursorEl.classList.add("hide") 
+    })
+    .to(arrowImg, {
+      opacity: 1,
+      y: 0, // Lands softly above the text
+      duration: 0.5,
+      ease: "power2.out"
+    }, "+=0.1");
+}
+
+/* ==========================================
+   4. STACKED CARD DEPTH & SCALE SCRUB
+   ========================================== */
+const sections = gsap.utils.toArray(".full-page-section");
+
+sections.forEach((section, index) => {
+  // Apply depth-scaling to every section except the very last one
+  if (index < sections.length - 1) {
+    gsap.to(section, {
+      scale: 0.9,
+      opacity: 0.5,
+      filter: "blur(2px)",
+      ease: "none",
+      scrollTrigger: {
+        trigger: sections[index + 1],
+        start: "top bottom", // Starts when the next section enters from the bottom
+        end: "top top",      // Finishes when the next section reaches the top
+        scrub: true,
+      }
+    });
+  }
+});

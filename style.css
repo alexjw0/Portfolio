@@ -867,11 +867,12 @@ body {
   display: block !important;
   flex: 0 0 auto !important;
   height: 380px;
+  min-width: 260px; /* Prevents slide from collapsing into a thin line */
   width: auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  background: #ffffff;
+  background: #f0f0f0; /* Light placeholder while loading */
   border: 1px solid rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
